@@ -1,3 +1,5 @@
+# coding: utf-8
+
 Feature: code-breaker submits guess
 The code-breaker submits a guess of four numbers. The game marks the guess
 with + and - signs.
@@ -41,3 +43,15 @@ Scenario Outline: submit guess
     | 1234 | 1243  | ++-- |
     | 1234 | 1423  | +--- |
     | 1234 | 4321  | ---- |
+
+  Scenarios: matches with duplicates
+    | code | guess | mark |
+    | 1234 | 1155  | +    |
+    | 1234 | 5115  | -    |
+    | 1134 | 1155  | ++   |
+    | 1134 | 5115  | +-   |
+    | 1134 | 5511  | --   |
+    | 1134 | 1115  | ++   |
+    | 1134 | 5111  | +-   |
+  
+  

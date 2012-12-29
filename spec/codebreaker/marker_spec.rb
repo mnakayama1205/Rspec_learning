@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+require 'kconv'
 require 'spec_helper'
 
 module Codebreaker
@@ -49,7 +51,7 @@ module Codebreaker
         end
       end
     
-      context "with 1 exact matches" do
+      context "1つだけ一致".tosjis do
         it "returns 0" do
           marker = Marker.new('1234', '1555')
           marker.number_match_count.should == 0
