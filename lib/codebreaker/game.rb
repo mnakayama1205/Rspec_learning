@@ -11,7 +11,16 @@ module Codebreaker
     end
 
     def guess(guess)
-      @output.puts '+'*exact_match_count(guess) + '-'*number_match_count(guess)
+      marker = Marker.new(@secret)
+      @output.puts '+'*marker.exact_match_count(guess) +
+                   '-'*marker.number_match_count(guess)
+    end
+    
+  end
+  
+  class Marker
+    def initialize(secret)
+      @secret = secret
     end
     
     def exact_match_count(guess)
@@ -28,11 +37,11 @@ module Codebreaker
 
     def exact_match?(guess, index)
       guess[index] == @secret[index]
-      
     end
 
     def number_match?(guess, index)
       @secret.include?(guess[index]) && !exact_match?(guess, index)
     end
   end
+  
 end
