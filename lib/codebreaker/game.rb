@@ -17,8 +17,6 @@ module Codebreaker
           mark << '+'
         elsif number_match?(guess, index)
           mark << '-'
-        else
-          mark=''
         end
       end
       @output.puts mark
