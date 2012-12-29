@@ -36,11 +36,11 @@ module Codebreaker
     end
 
     def exact_match?(guess, index)
-      guess[index] == @secret[index]
+      @guess[index] == @secret[index]
     end
 
     def number_match?(guess, index)
-      @secret.include?(guess[index]) && !exact_match?(guess, index)
+      @secret.include?(@guess[index]) && !exact_match?(@guess, index)
     end
   end
   
